@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   test:
-    name: Run API tests
+    name: Test and build
     runs-on: ubuntu-latest
 
     steps:
@@ -39,3 +39,6 @@ jobs:
 
       - name: Run tests
         run: python -m pytest -q
+
+      - name: Build Docker image
+        run: docker build -t devops-platform-api:ci .
